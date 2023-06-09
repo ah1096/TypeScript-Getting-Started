@@ -23,5 +23,6 @@ module.exports = {
     static: path.join(__dirname),
     compress: true,
     port: 8080,
+    inline: false, //switch to true to automatically refresh changes in browser
   },
 };

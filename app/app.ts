@@ -1,3 +1,6 @@
+/// <reference path="player.ts" />
+
+
 function startGame() {
     // starting a new game
 
@@ -12,15 +15,7 @@ function startGame() {
     console.log(`New game starting for player: ${name}`);
   }
 
-  function getInputValue(elementID: string): string | undefined {
-    const inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById(elementID);
 
-    if (inputElement.value === '') {
-      return undefined;
-    } else {
-      return inputElement.value;
-    }
-  }
 
   function postScore(score: number, playerName: string = "MultiMath Player"): void {
     let logger: (value: string) => void;
@@ -47,15 +42,6 @@ function startGame() {
     console.log(err + " ERROR"); 
   }
 
-  let myResult: Result = {
-    playerName: 'Marie',
-    score: 5,
-    problemCount: 5,
-    factor: 7
-  };
-
-  let player: Person = {
-    name: 'Daniel',
-    formatName: () => 'Dan'
-  }
-  
+const firstPlayer: Player = new Player();
+firstPlayer.name = 'Lanier';
+console.log(firstPlayer.formatName());

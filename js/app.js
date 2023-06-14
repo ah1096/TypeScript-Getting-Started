@@ -1,4 +1,9 @@
 "use strict";
+class Player {
+    formatName() {
+        return this.name.toUpperCase();
+    }
+}
 function startGame() {
     let playerName = getInputValue('playername');
     logPlayer(playerName);
@@ -36,14 +41,7 @@ const logMessage = (message) => console.log(message);
 function logError(err) {
     console.log(err + " ERROR");
 }
-let myResult = {
-    playerName: 'Marie',
-    score: 5,
-    problemCount: 5,
-    factor: 7
-};
-let player = {
-    name: 'Daniel',
-    formatName: () => 'Dan'
-};
+const firstPlayer = new Player();
+firstPlayer.name = 'Lanier';
+console.log(firstPlayer.formatName());
 //# sourceMappingURL=app.js.map

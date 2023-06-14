@@ -5,6 +5,7 @@ function startGame() {
     logPlayer(playerName);
 
     postScore(80, playerName)
+    postScore(-5, playerName);
   }
 
   function logPlayer(name: string = "MultiMath Player"): void {
@@ -22,10 +23,27 @@ function startGame() {
   }
 
   function postScore(score: number, playerName: string = "MultiMath Player"): void {
+    let logger: (value: string) => void;
+
+    if (score < 0) {
+      logger = logError
+    } else {
+      logger = logMessage
+    }
+
     const scoreElement: HTMLElement | null = document.getElementById('postedScores');
     if (scoreElement !== null) {
       scoreElement.innerText = `${score} - ${playerName}`;
     }
+
+    logger(`Logged Score: ${score}`)
   }
   
   document.getElementById('startGame')!.addEventListener('click', startGame)
+
+  const logMessage = (message : string) => console.log(message)
+
+  function logError (err: string):void {
+    console.log(err + " ERROR"); 
+  }
+  
